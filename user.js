@@ -1,9 +1,13 @@
 class User {
-    constructor(F, L, E, B) {
+
+
+
+    constructor(F, L, E, B, P) {
         this.firstName = F;
         this.lastName = L;
         this.email = E;
         this.birthDate = B;
+        this.password = P;
     }
 
     isValid() {
@@ -19,6 +23,10 @@ class User {
         }
 
         if (!MailRegex.test(this.email)) {
+            return false;
+        }
+
+        if( this.password.length < 8 || this.password.length > 40){
             return false;
         }
 
