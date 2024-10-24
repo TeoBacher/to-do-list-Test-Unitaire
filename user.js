@@ -7,9 +7,33 @@ class User {
     this.password = P;
   }
 
+  setFirstName(F) {
+    this.firstName = F;
+  }
+
+  setLastName(L) {
+    this.lastName = L;
+  }
+
+  setMail(E) {
+    this.email = E;
+  }
+
+  setBirthDate(B) {
+    this.birthDate = B;
+  }
+
+  setPassword(P) {
+    this.password = P;
+  }
+
   isValid() {
-    return this.birthDateIsValid() && this.MailIsValid() && this.isUser();
-    // this.MDPIsValid()&&
+    return (
+      this.birthDateIsValid() &&
+      this.MailIsValid() &&
+      this.isUser() &&
+      this.MDPIsValid()
+    );
   }
 
   isUser() {
