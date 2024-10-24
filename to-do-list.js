@@ -44,6 +44,12 @@ class ToDoList {
       this.mail = true;
     }
   }
+  save() {
+    if (this.userIsValid) {
+      return true;
+    }
+    return false;
+  }
 }
 
 module.exports = ToDoList;
