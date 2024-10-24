@@ -5,8 +5,15 @@ class Item {
         this.date = D;
     }
 
+    isValid(){
+        if(this.nameIsValid && this.contentIsValid && this.dateIsValid) {
+            return true;
+        }
+        return false;
+    }
+
     nameIsValid () {
-        return this.name != null;
+        return this.name.trim() !== '';
     }
 
     contentIsValid(){
@@ -14,7 +21,9 @@ class Item {
     }
 
     dateIsValid(currentDate){
-        const regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/;
-        return regex.test(dateTimeString);
+        const timestamp = Date.parse(currentDate);
+        return isNaN(timestamp);
     }
 }
+
+module.exports = Item;
