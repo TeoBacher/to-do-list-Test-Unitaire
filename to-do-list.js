@@ -25,4 +25,12 @@ class ToDoList {
   userIsValid() {
     return this.user.isValid();
   }
+
+  save(){
+    if(this.userIsValid){
+      return true;
+    }
+    return false;
+  }
+  
 }
