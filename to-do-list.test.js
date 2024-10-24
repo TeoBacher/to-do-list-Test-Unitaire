@@ -17,7 +17,7 @@ beforeEach(() => {
     todo = new ToDoList(item, user);
   });
 
-test('should return false when save is unsuccessful', () => {
+test('', () => {
     todo.save = jest.fn().mockReturnValue(true);
 
     const result = todo.save();
