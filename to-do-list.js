@@ -3,7 +3,14 @@ const User = require("./user");
 class ToDoList {
   constructor(I, U) {
     this.item = I;
-    this.user = U;
+    this.user = new User(
+      U.firstName,
+      U.lastName,
+      U.email,
+      U.birthDate,
+      U.password
+    );
+    // this.mail = false;
   }
 
   setItem(I) {
@@ -11,18 +18,32 @@ class ToDoList {
   }
 
   setUser(U) {
-    this.user = U;
+    this.user = new User(
+      U.firstName,
+      U.lastName,
+      U.email,
+      U.birthDate,
+      U.password
+    );
   }
 
   isValidToDo() {
-    return this.userIsValid();
+    return this.userIsValid() && this.itemIsValid();
   }
 
   itemIsValid() {
-    // code...
+    return this.item >= 0 && this.item <= 10;
   }
 
   userIsValid() {
     return this.user.isValid();
   }
+
+  sendMail() {
+    if (this.item === 8) {
+      this.mail = true;
+    }
+  }
 }
+
+module.exports = ToDoList;
