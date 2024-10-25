@@ -1,6 +1,6 @@
 const User = require("./user");
 
-class ToDoList {
+class Todo {
   constructor(I, U) {
     this.item = I;
     this.user = new User(
@@ -44,6 +44,7 @@ class ToDoList {
       this.mail = true;
     }
   }
+
   save() {
     if (this.userIsValid) {
       return true;
@@ -52,4 +53,4 @@ class ToDoList {
   }
 }
 
-module.exports = ToDoList;
+module.exports = Todo;
