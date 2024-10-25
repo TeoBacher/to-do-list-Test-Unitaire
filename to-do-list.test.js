@@ -10,7 +10,7 @@ describe("TODOLIST", () => {
   beforeEach(() => {
     now = new Date();
     now.setMinutes(now.getMinutes() - 29);
-    item = new Item("Mi", "zdekfrfjuhoiafkozjG", now);
+    item = new Item("Mi", "zduhoiafkozjG", now);
     user = new User(
       "Loris",
       "Laurenti",
