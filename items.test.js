@@ -32,8 +32,8 @@ describe('Items', () => {
      test('', () => { 
         const now = new Date(); 
         now.setMinutes(now.getMinutes() - 29);
-        const item = new Item('Mi','zdekfrfjuhoiafkozjG' ,'dq');
-        expect(item.dateIsValid()).toBe(true);
+        const item = new Item('Mi','zdekfrfjuhoiafkozjG' ,'');
+        expect(item.dateIsValid()).toBe(false);
      })
 
      test('', () => { 

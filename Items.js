@@ -21,8 +21,7 @@ class Item {
     }
 
     dateIsValid(currentDate){
-        const timestamp = Date.parse(currentDate);
-        return isNaN(timestamp);
+        return !isNaN(Date.parse(this.date))
     }
 }
 
