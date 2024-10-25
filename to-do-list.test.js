@@ -26,6 +26,11 @@ describe("TODOLIST", () => {
     expect(todo.isValidToDo()).toBe(true);
   });
 
+  test("item > 10", () => {
+    todo.setItem(11);
+    expect(todo.isValidToDo()).toBe(false);
+  });
+
   test("", () => {
     todo.save = jest.fn().mockReturnValue(true);
 

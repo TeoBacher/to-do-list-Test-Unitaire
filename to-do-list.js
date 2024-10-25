@@ -1,4 +1,5 @@
 const User = require("./user");
+const EmailSenderService = require("./email");
 
 class Todo {
   constructor(I, U) {
@@ -10,7 +11,7 @@ class Todo {
       U.birthDate,
       U.password
     );
-    // this.mail = false;
+    this.email = new EmailSenderService("message", "owner", "receiver");
   }
 
   setItem(I) {
@@ -40,9 +41,7 @@ class Todo {
   }
 
   sendMail() {
-    if (this.item === 8) {
-      this.mail = true;
-    }
+    return this.email.mailIsValid() && this.item === 8;
   }
 
   save() {
