@@ -31,7 +31,9 @@ class User {
     return (
       this.birthDateIsValid() &&
       this.MailIsValid() &&
-      
+      this.isUser() &&
+      this.MDPIsValid()
+    );
   }
 
   isUser() {
