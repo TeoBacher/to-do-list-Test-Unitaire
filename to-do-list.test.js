@@ -32,4 +32,9 @@ describe("TODOLIST", () => {
     const result = todo.save();
     expect(result).toBe(true);
   });
+
+  test("Send mail", () => {
+    todo.sendMail = jest.fn().mockReturnValue(true);
+    expect(todo.sendMail()).toBe(true);
+  });
 });
