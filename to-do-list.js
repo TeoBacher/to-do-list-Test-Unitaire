@@ -12,6 +12,8 @@ class Todo {
       U.password
     );
     this.email = new EmailSenderService("message", "owner", "receiver");
+    this.creationTime = null;
+    this.lastAddItem = 0;
   }
 
   setItem(I) {
@@ -30,6 +32,22 @@ class Todo {
 
   isValidToDo() {
     return this.userIsValid() && this.itemIsValid();
+  }
+
+  createNewItem() {
+    let now = new Date();
+    let timeDifference = (now - this.creationTime) / (1000 * 60);
+
+    if (timeDifference >= 30) {
+      this.lastAddItem = 0;
+      this.lastAddItem++;
+    } else if (this.lastAddItem === 2) {
+      return false;
+    }
+
+    this.creationTime = now;
+
+    return true;
   }
 
   itemIsValid() {

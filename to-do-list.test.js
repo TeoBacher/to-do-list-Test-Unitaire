@@ -42,4 +42,16 @@ describe("TODOLIST", () => {
     todo.sendMail = jest.fn().mockReturnValue(true);
     expect(todo.sendMail()).toBe(true);
   });
+
+  test("1 item, 31 min", () => {
+    todo.creationTime = new Date(now.getTime() - 31 / (60 * 1000));
+    todo.lastAddItem = 1;
+    expect(todo.createNewItem()).toBe(true);
+  });
+
+  test("2 item, 29min", () => {
+    todo.creationTime = new Date(now.getTime() - 29 / (60 * 1000));
+    todo.lastAddItem = 2;
+    expect(todo.createNewItem()).toBe(false);
+  });
 });
