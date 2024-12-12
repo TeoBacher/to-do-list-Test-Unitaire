@@ -2,6 +2,16 @@ const Todo = require("./to-do-list");
 const Item = require("./Items");
 const User = require("./user");
 
+fetch('https://dummyjson.com/todos', {
+  method: 'GET',
+  headers: {
+      'Accept': 'application/json',
+  },
+})
+ .then(response => response.json())
+ .then(response => console.log(JSON.stringify(response)))
+
+
 describe("TODOLIST", () => {
   let user;
   let todo;
