@@ -2,16 +2,6 @@ const Todo = require("./to-do-list");
 const Item = require("./Items");
 const User = require("./user");
 
-fetch('https://dummyjson.com/todos', {
-  method: 'GET',
-  headers: {
-      'Accept': 'application/json',
-  },
-})
- .then(response => response.json())
- .then(response => console.log(JSON.stringify(response)))
-
-
 describe("TODOLIST", () => {
   let user;
   let todo;
@@ -63,5 +53,20 @@ describe("TODOLIST", () => {
     todo.creationTime = new Date(now.getTime() - 29 / (60 * 1000));
     todo.lastAddItem = 2;
     expect(todo.createNewItem()).toBe(false);
+  });
+
+  test("get todo", async () => {  
+    const response = await fetch('https://dummyjson.com/todos', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+  
+    const data = await response.json();
+  
+    expect(data).toHaveProperty('todos'); 
+    expect(Array.isArray(data.todos)).toBe(true); 
+    expect(data.todos.length).toBeGreaterThan(0); 
   });
 });
