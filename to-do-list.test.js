@@ -1,6 +1,38 @@
 const Todo = require("./to-do-list");
 const Item = require("./Items");
 const User = require("./user");
+expect.extend({
+  toBeValidTodo(todo) {
+    const pass = todo.isValidToDo();
+    if (pass) {
+      return {
+        message: () => `expected todo not to be valid`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () => `expected todo to be valid`,
+        pass: false,
+      };
+    }
+  },
+
+  toBeValidItem(item) {
+    const pass = item.isValid();
+  
+    if (pass) {
+      return {
+        message: () => `expected item not to be valid`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () => `expected item to be valid`,
+        pass: false,
+      };
+    }
+  }
+});
 
 describe("TODOLIST", () => {
   let user;
@@ -20,7 +52,12 @@ describe("TODOLIST", () => {
     );
     todo = new Todo(1, user);
   });
-
+  test("todo is valid", () => {
+    expect(todo).toBeValidTodo();
+  });
+  test("Item is valid", () => {
+    expect(item.isValid()).toBe(true);
+  });
   test("all is good", () => {
     // console.log(todo.itemIsValid());
     expect(todo.isValidToDo()).toBe(true);

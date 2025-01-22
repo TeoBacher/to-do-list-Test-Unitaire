@@ -6,10 +6,7 @@ class Item {
   }
 
   isValid() {
-    if (this.nameIsValid && this.contentIsValid && this.dateIsValid) {
-      return true;
-    }
-    return false;
+    return this.nameIsValid() && this.contentIsValid() && this.dateIsValid();
   }
 
   nameIsValid() {
